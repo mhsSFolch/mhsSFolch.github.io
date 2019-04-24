@@ -20,7 +20,7 @@ let score = 0
 
 function preload() {
   sound = loadSound('./basic_tone.wav');
-  sound2 = LoadSound('./p_c_g0.56_int.wav')
+  sound2 = loadSound('./p_c_g0.56_int.wav')
 }
 
 function setup() {
