@@ -19,8 +19,8 @@ let score = 0
 
 
 function preload() {
-  //sound = loadSound('./basic_tone.wav');
-  //sound2 = LoadSound('./p_c_g0.56_int.wav')
+  sound = loadSound('./basic_tone.wav');
+  sound2 = LoadSound('./p_c_g0.56_int.wav')
 }
 
 function setup() {
@@ -40,7 +40,7 @@ if (hit) {
   textSize(32)
   text('Hit enter to retry',width/2-width/4,height/2+height/4)
   text(score,width/2,height/2+height/8-height/4*2)
-  //sound2.play()
+  sound2.play()
 }
   else {
     fill(255)
@@ -66,12 +66,12 @@ if (hit) {
   if (x2 <= 0 || x2+size*2 >= width) {
     sp1 =-sp1
     score = score+1
-    //sound.play()
+    sound.play()
   }
   if (y2 <= 0 || y2+size*2 >= height) {
     sp2 =-sp2
     score= score+1
-    //sound.play()
+    sound.play()
   }
   x2 = x2+sp1
   y2 = y2+sp2
