@@ -41,8 +41,8 @@ if (hit) {
   text('Hit enter to retry',width/2-width/4,height/2+height/4)
   text(score,width/2,height/2+height/8-height/4*2)
   sound2.playMode('untilDone')
-  sound2.play()
   stop(1)
+  sound2.play()
   print(hit)
 }
   else {
