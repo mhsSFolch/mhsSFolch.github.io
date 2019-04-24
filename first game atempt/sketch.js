@@ -43,7 +43,6 @@ if (hit) {
   sound2.playMode('untilDone')
   sound2.play()
   print(hit)
-  hit = false
 }
   else {
     fill(255)
