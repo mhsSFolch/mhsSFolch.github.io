@@ -11,7 +11,7 @@ let sp1 = 5
 let sp2 = -5
 let sp3 = 3
 let sp4 = 3
-var sound;
+var sound
 var sound2
 let hit = false
 let score = 0
@@ -19,8 +19,8 @@ let score = 0
 
 
 function preload() {
-  sound = loadSound('./basic_tone.wav');
-  sound2 = LoadSound('./p_c_g0.56_int.wav')
+  //sound = loadSound('./basic_tone.wav');
+  //sound2 = LoadSound('./p_c_g0.56_int.wav')
 }
 
 function setup() {
@@ -40,7 +40,7 @@ if (hit) {
   textSize(32)
   text('Hit enter to retry',width/2-width/4,height/2+height/4)
   text(score,width/2,height/2+height/8-height/4*2)
-  sound2.play()
+  //sound2.play()
 }
   else {
     fill(255)
@@ -66,12 +66,12 @@ if (hit) {
   if (x2 <= 0 || x2+size*2 >= width) {
     sp1 =-sp1
     score = score+1
-    sound.play()
+    //sound.play()
   }
   if (y2 <= 0 || y2+size*2 >= height) {
     sp2 =-sp2
     score= score+1
-    sound.play()
+    //sound.play()
   }
   x2 = x2+sp1
   y2 = y2+sp2
@@ -101,7 +101,6 @@ textSize(20)
 text('Score',40,30)
 text(score,40,50)
 fill(0)
-}
 //prevent the player from leaving the screen
 if (y1 <= 0) {
   y1 =y1+sp4
@@ -119,6 +118,8 @@ else if (x1+size >= width+50) {
   x1 =x1-sp3
 
 }
+}
+
 //reseting the game
 if (keyCode === ENTER) {
   x2 = 400
