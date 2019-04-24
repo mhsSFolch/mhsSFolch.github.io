@@ -42,6 +42,7 @@ if (hit) {
   text(score,width/2,height/2+height/8-height/4*2)
   sound2.playMode('untilDone')
   sound2.play()
+  sound2.pause()
   print(hit)
 }
   else {
