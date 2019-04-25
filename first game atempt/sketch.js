@@ -50,6 +50,15 @@ if (hit) {
   pause(1)
   p = true
   }
+  //reseting the game
+if (keyCode === ENTER) {
+  x2 = 400
+  x1 = 100
+  y1 = 100
+  y2 = 300
+  hit = false
+  score = 0
+}
 }
   else {
     fill(255)
@@ -127,16 +136,6 @@ else if (x1+size >= width+50) {
   x1 =x1-sp3
 
 }
-}
-
-//reseting the game
-if (keyCode === ENTER) {
-  x2 = 400
-  x1 = 100
-  y1 = 100
-  y2 = 300
-  hit = false
-  score = 0
 }
 }
 //movement functions
