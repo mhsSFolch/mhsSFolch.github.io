@@ -16,12 +16,13 @@ var sound2
 let hit = false
 let score = 0
 let p = false
-
+var img
 
 
 function preload() {
   sound = loadSound('./basic_tone.wav');
   sound2 = loadSound('./p_c_g0.56_int.wav')
+  img = loadImage('download (5).jfif')
 }
 
 function setup() {
@@ -63,6 +64,7 @@ if (keyCode === ENTER) {
   else {
     fill(255)
   background(0)
+  image(img,0,0)
   hit = collideRectCircle(x2,y2,size*2,size*2,x1,y1,size,size)
 
   //movement
