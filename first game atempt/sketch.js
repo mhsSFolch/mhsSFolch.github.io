@@ -51,6 +51,7 @@ if (keyCode === ENTER) {
   y2 = 300
   hit = false
   score = 0
+  p = false
 }
     }
   else {
