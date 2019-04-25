@@ -22,7 +22,7 @@ var img
 function preload() {
   sound = loadSound('./basic_tone.wav');
   sound2 = loadSound('./p_c_g0.56_int.wav')
-  img = loadImage('download (5).jfif')
+  img = loadImage('PIA15417-800x600.jpg')
 }
 
 function setup() {
