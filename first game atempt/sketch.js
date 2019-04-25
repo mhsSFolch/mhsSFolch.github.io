@@ -64,7 +64,7 @@ if (keyCode === ENTER) {
   else {
     fill(255)
   background(0)
-  image(img,0,0)
+  image(img,0,0,800,600)
   hit = collideRectCircle(x2,y2,size*2,size*2,x1,y1,size,size)
 
   //movement
