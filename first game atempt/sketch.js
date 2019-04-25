@@ -15,6 +15,7 @@ var sound
 var sound2
 let hit = false
 let score = 0
+let p = false
 
 
 
@@ -41,8 +42,14 @@ if (hit) {
   text('Hit enter to retry',width/2-width/4,height/2+height/4)
   text(score,width/2,height/2+height/8-height/4*2)
   sound2.playMode('untilDone')
+  if (p) {
+    pause()
+    }
+  else {
   sound2.play()
-  print(hit)
+  pause(1)
+  p = true
+  }
 }
   else {
     fill(255)
