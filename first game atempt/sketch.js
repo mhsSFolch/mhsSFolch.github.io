@@ -96,7 +96,7 @@ if (keyCode === ENTER) {
   x2 = x2+sp1
   y2 = y2+sp2
   //enemy
-  fill(0)
+  noFill()
   rect(x2,y2,size*2,size*2)
   fill(255)
   rect(x2,y2,size*2,size/4)
