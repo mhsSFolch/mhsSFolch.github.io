@@ -43,7 +43,15 @@ if (hit) {
   text(score,width/2,height/2+height/8-height/4*2)
   sound2.playMode('untilDone')
   if (p) {
-    pause()
+  //reseting the game
+if (keyCode === ENTER) {
+  x2 = 400
+  x1 = 100
+  y1 = 100
+  y2 = 300
+  hit = false
+  score = 0
+}
     }
   else {
   sound2.play()
@@ -127,15 +135,6 @@ else if (x1+size >= width+50) {
   x1 =x1-sp3
 
 }
-}
-  //reseting the game
-if (keyCode === ENTER) {
-  x2 = 400
-  x1 = 100
-  y1 = 100
-  y2 = 300
-  hit = false
-  score = 0
 }
 }
 //movement functions
