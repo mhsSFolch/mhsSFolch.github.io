@@ -1,6 +1,8 @@
 /*
 Sebastian Folch
-april 11 2019
+April 11, 2019
+
+Link http://localhost/p5/first game atempt
 */
 let x1 = 0
 let x2 = 400
@@ -56,12 +58,15 @@ if (keyCode === ENTER) {
 }
     }
   else {
+  //playing the gameover sound
   sound2.play()
   sound2.pause(1)
   p = true
   }
 }
   else {
+  //the rest of the game code
+  //clearing the background
     fill(255)
   background(0)
   image(img,0,0,800,600)
@@ -70,13 +75,13 @@ if (keyCode === ENTER) {
   //movement
   leftright()
   updown()
-  // player
+  // player design
 
   fill(100)
   ellipse(x1,y1,size,size)
   fill(188,188,188)
   ellipse(x1,y1,size,size)
-    fill(127,255,116)
+    fill(90,167,55)
   ellipse(x1,y1,size,size/10*2)
   ellipse(x1,y1,size/10*2,size)
   fill(240,255,0)
@@ -87,17 +92,19 @@ if (keyCode === ENTER) {
   //enemy movement
   if (x2 <= 0 || x2+size*2 >= width) {
     sp1 =-sp1
+    //increasing score
     score = score+1
     sound.play()
   }
   if (y2 <= 0 || y2+size*2 >= height) {
     sp2 =-sp2
+    //increasing score
     score= score+1
     sound.play()
   }
   x2 = x2+sp1
   y2 = y2+sp2
-  //enemy
+  //enemy design
   noFill()
   rect(x2,y2,size*2,size*2)
   fill(188)
@@ -109,7 +116,9 @@ if (keyCode === ENTER) {
   ellipseMode(CENTER)
   fill(240,255,0)
   ellipse(x2+size,y2+size,size,size)
+  fill(127,255,116)
   ellipse(x2+size,y2+size,size/2,size/2)
+  fill(240,255,0)
   ellipse(x2,y2,size/4,size/4)
   ellipse(x2+size*2,y2,size/4,size/4)
   ellipse(x2,y2+size*2,size/4,size/4)
@@ -125,18 +134,22 @@ text('Score',40,30)
 text(score,40,50)
 fill(0)
 //prevent the player from leaving the screen
+//top border
 if (y1 <= 0) {
   y1 =y1+sp4
 
 }
+//bottom border
 else if (y1+size >= height+50) {
   y1 =y1-sp4
 
 }
+//left border
 if (x1 <= 0) {
   x1 =x1+sp3
 
 }
+//right border
 else if (x1+size >= width+50) {
   x1 =x1-sp3
 
