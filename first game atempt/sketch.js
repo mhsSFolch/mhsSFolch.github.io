@@ -114,7 +114,7 @@ if (keyCode === ENTER) {
   rect(x2,y2+size*2-size/4,size*2,size/4)
   rect(x2,y2+size,size*2,size/4)
   ellipseMode(CENTER)
-  fill(240,255,0)
+  fill(90,167,55)
   ellipse(x2+size,y2+size,size,size)
   fill(127,255,116)
   ellipse(x2+size,y2+size,size/2,size/2)
