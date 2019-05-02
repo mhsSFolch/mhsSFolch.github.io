@@ -2,7 +2,7 @@
 Sebastian Folch
 April 11, 2019
 
-Link http://localhost/p5/first game atempt
+Link http://localhost:8080/p5/first game atempt V2
 */
 let x1 = 0
 let x2 = 400
@@ -21,6 +21,7 @@ let p = false
 var img
 let df = 10
 let highscore = 0
+let level = 0
 
 function preload() {
   sound = loadSound('./basic_tone.wav');
@@ -35,15 +36,31 @@ function setup() {
 
 function draw() {
   // put drawing code here
+  //Instruction screen
+  if (level === 0) {
+    background(0)
+    textAlign(CENTER,CENTER)
+    textSize(32)
+    fill(255)
+    text('-------=====Controls=====------- \nArrow keys to move.',width/2,height/2+75)
+    text('-------=====Goal=====------- \nAvoid the enemy ships attempts to ram into you.',width/2,height/2-50)
+    textSize(12)
+    text('---==Hit enter to proced.==---',width/2,height/2+200)
+    //time to get to the game
+    if (keyIsDown(ENTER)) {
+      level = level+1
+    }
+  }
+  else if (level === 1) {
 //gameover
 if (hit) {
   fill(255,0,0)
   rect(0,0,width,height)
   fill(255)
   textSize(70)
-  text('Game Over',width/2-width/4,height/2)
+  text('Game Over',width/2,height/2)
   textSize(32)
-  text('Hit enter to retry',width/2-width/4,height/2+height/4)
+  text('Hit enter to retry',width/2,height/2+height/4)
   text(score,width/2,height/2+height/8-height/4*2)
   sound2.playMode('untilDone')
   // checking the highscore
@@ -54,7 +71,7 @@ if (hit) {
   text(highscore,width/2,height/3-height/6)
     if (p) {
   //reseting the game
-if (keyCode === ENTER) {
+if (keyIsDown(ENTER)) {
   x2 = 400
   x1 = 100
   y1 = 100
@@ -99,6 +116,20 @@ if (keyCode === ENTER) {
   ellipse(x1+size/2,y1,size/10,size/10)
   ellipse(x1,y1-size/2,size/10,size/10)
   ellipse(x1,y1+size/2,size/10,size/10)
+  ellipseMode(CENTER)
+  fill(50)
+  ellipse(x1-size/4,y1-size/4,size/4,size/4)
+  ellipse(x1+size/4,y1-size/4,size/4,size/4)
+  ellipse(x1-size/4,y1+size/4,size/4,size/4)
+  ellipse(x1+size/4,y1+size/4,size/4,size/4)
+  strokeWeight(5)
+  stroke(100)
+  line(x1+size/4,y1+size/4,x1+size/2.5,y1+size/2.5)
+  line(x1-size/4,y1+size/4,x1-size/2.5,y1+size/2.5)
+  line(x1+size/4,y1-size/4,x1+size/2.5,y1-size/2.5)
+  line(x1-size/4,y1-size/4,x1-size/2.5,y1-size/2.5)
+  strokeWeight(1)
+  stroke(0)
   //enemy movement
   if (x2 <= 0 || x2+size*2 >= width) {
     sp1 =-sp1
@@ -173,20 +204,21 @@ if (score === df) {
 }
 }
 }
+}
 //movement functions
 function leftright() {
-  if (keyCode === LEFT_ARROW) {
+  if (keyIsDown(LEFT_ARROW)) {
     x1 = x1-sp3
   }
-  else if (keyCode === RIGHT_ARROW) {
+  else if (keyIsDown(RIGHT_ARROW)) {
     x1 = x1+sp3
   }
 }
 function updown() {
-  if (keyCode === UP_ARROW) {
+  if (keyIsDown(UP_ARROW)) {
     y1 = y1-sp4
   }
-  else if (keyCode === DOWN_ARROW) {
+  else if (keyIsDown(DOWN_ARROW)) {
     y1 = y1+sp4
   }
 }
