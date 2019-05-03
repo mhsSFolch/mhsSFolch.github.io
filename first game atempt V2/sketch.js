@@ -153,7 +153,9 @@ if (keyIsDown(ENTER)) {
   rect(x2,y2,size/4,size*2)
   rect(x2+size*2-size/4,y2,size/4,size*2)
   rect(x2,y2+size*2-size/4,size*2,size/4)
-  rect(x2,y2+size,size*2,size/4)
+  rectMode(CENTER)
+  rect(x2+size,y2+size,size*2,size/4)
+  rectMode(CORNER)
   ellipseMode(CENTER)
   fill(90,167,55)
   ellipse(x2+size,y2+size,size,size)
@@ -168,6 +170,15 @@ if (keyIsDown(ENTER)) {
   line(x2,y2,x2+size*2,y2+size*2)
   line(x2+size*2,y2,x2,y2+size*2)
   stroke(0)
+  fill(50)
+  ellipse(x2,y2+size,size/2,size/2)
+  ellipse(x2+size,y2,size/2,size/2)
+  ellipse(x2+size,y2+size*2,size/2,size/2)
+  ellipse(x2+size*2,y2+size,size/2,size/2)
+  ellipse(x2,y2+size,size/4,size/4)
+  ellipse(x2+size,y2,size/4,size/4)
+  ellipse(x2+size,y2+size*2,size/4,size/4)
+  ellipse(x2+size*2,y2+size,size/4,size/4)
 //displaying points
 fill(255)
 textSize(20)
@@ -195,7 +206,7 @@ else if (x1+size >= width+50) {
   x1 =x1-sp3
 
 }
-//difulcty curve
+//diffulcty curve
 if (score === df) {
   sp1 = sp1*1.2
   sp2 = sp1*1.2
