@@ -431,9 +431,12 @@ rect(width/2,height,width,faceheight/10);
   drawGlasses();
 
 }
-
+/*
+MY CODE 
+*/
 //eyes created by Sebastian
 function drawEyes(x,y) {
+  //variables to place the eyelasheses
   let eyewidth=facewidth-150;
   let eyeheight=faceheight-275;
   //the main part of the eye
@@ -445,7 +448,7 @@ function drawEyes(x,y) {
   fill(0);
   ellipse(x,2*y/3+20,facewidth-185,faceheight-285);
   fill(255);
-//eyelashes
+  //eyelashes
   line(x,2*y/3+20+eyeheight/2,x,2*y/3+20+eyeheight/2+5);
   line(x-eyewidth/3+4,2*y/3+20+eyeheight/2-1,x-eyewidth/3+2,2*y/3+20+eyeheight/2+4);
   line(x+eyewidth/3-4,2*y/3+20+eyeheight/2-1,x+eyewidth/3-2,2*y/3+20+eyeheight/2+4);
@@ -456,6 +459,7 @@ function drawEyes(x,y) {
   line(x+eyewidth/3-4,2*y/3+20-eyeheight/2+1,x+eyewidth/3-2,2*y/3+20-eyeheight/2-4);
   line(x-1.7*eyewidth/3+4,2*y/3+20-eyeheight/2+8,x-1.7*eyewidth/3+1,2*y/3+20-eyeheight/2+4);
   line(x+1.7*eyewidth/3-4,2*y/3+20-eyeheight/2+8,x+1.7*eyewidth/3-1,2*y/3+20-eyeheight/2+4);
+  //end of eye code
 }
 
 
@@ -533,35 +537,43 @@ function drawFacialhair(x,y) {
   ellipse(x,y,1,1);
 
 }
-
+/*
+MY CODE
+*/
 function drawGlasses() {
   //Glasses by Sebastian
+  // variables used to place the lenses and frame
   let x = width/3;
   let y = height/2;
-rectMode(CENTER);
-//Lenses
-fill(173,252,228,75);
-stroke(254,197,47);
-rect(x,2*y/3+20,facewidth-139,faceheight-265);
-x=width/1.5;
-rect(x,2*y/3+20,facewidth-139,faceheight-265);
-//frame
-fill(254,197,47);
-y = height/2-18.5;
-x = width/2;
-rect(x,2*y/3+20-8,facewidth-15,faceheight-295);
-fill(255);
-stroke(0);
+  rectMode(CENTER);
+  //Lenses for the glasses
+  fill(173,252,228,75);
+  stroke(254,197,47);
+  rect(x,2*y/3+20,facewidth-139,faceheight-265);
+  x=width/1.5;
+  rect(x,2*y/3+20,facewidth-139,faceheight-265);
+  //frame
+  fill(254,197,47);
+  y = height/2-18.5;
+  x = width/2;
+  rect(x,2*y/3+20-8,facewidth-15,faceheight-295);
+  fill(255);
+  stroke(0);
+  //end of glasses code
 }
-
+/*
+MY CODE
+*/
 function drawEars(x) {
   //by Sebastian
-    fill(247,231,152);
-    stroke(247,231,152);
+  //applying the proper colors to the fill and stroke
+  fill(247,231,152);
+  stroke(247,231,152);
+  //drawing the ears
   ellipseMode(CENTER);
   ellipse(x,height/2-20,facewidth/facewidth*30,facewidth/facewidth*30);
   ellipse(x,height/2+10,faceheight/faceheight*20,faceheight/faceheight*20);
-quad(x-15,height/2-20,x+15,height/2-20,x+10,height/2+10,x-10,height/2+10);
-stroke(0);
-
+  quad(x-15,height/2-20,x+15,height/2-20,x+10,height/2+10,x-10,height/2+10);
+  stroke(0);
+  //end of ears code
 }
