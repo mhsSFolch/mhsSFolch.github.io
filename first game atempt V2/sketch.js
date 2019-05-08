@@ -4,6 +4,7 @@ April 11, 2019
 
 Link http://localhost:8080/p5/first game atempt V2
 */
+//global variables
 let x1 = 0
 let x2 = 400
 let y1 = 0
@@ -24,6 +25,7 @@ let highscore = 0
 let level = 0
 
 function preload() {
+  //loading sounds and images the game uses
   sound = loadSound('./basic_tone.wav');
   sound2 = loadSound('./p_c_g0.56_int.wav')
   img = loadImage('PIA15417-800x600.jpg')
@@ -49,46 +51,53 @@ function draw() {
     //time to get to the game
     if (keyIsDown(ENTER)) {
       level = level+1
+      //end of if statment
     }
+    //end of instruction screen
   }
   else if (level === 1) {
-//gameover
-if (hit) {
-  fill(255,0,0)
-  rect(0,0,width,height)
-  fill(255)
-  textSize(70)
-  text('Game Over',width/2,height/2)
-  textSize(32)
-  text('Hit enter to retry',width/2,height/2+height/4)
-  text(score,width/2,height/2+height/8-height/4*2)
-  sound2.playMode('untilDone')
-  // checking the highscore
-  if (score > highscore) {
+//gameover screen
+    if (hit) {
+    fill(255,0,0)
+    rect(0,0,width,height)
+   fill(255)
+   textSize(70)
+   text('Game Over',width/2,height/2)
+   textSize(32)
+   text('Hit enter to retry',width/2,height/2+height/4)
+   text(score,width/2,height/2+height/8-height/4*2)
+   //playing gameover noise
+   sound2.playMode('untilDone')
+   // checking the highscore
+     if (score > highscore) {
     highscore = score
-  }
+     //end of if statment for highscore
+   }
+  // displaying your highscore
   textSize(22)
   text(highscore,width/2,height/3-height/6)
     if (p) {
-  //reseting the game
-if (keyIsDown(ENTER)) {
-  x2 = 400
-  x1 = 100
-  y1 = 100
-  y2 = 300
-  hit = false
-  score = 0
-  p = false
-  df = 10
-  sp1 = 2
-  sp2 = 2
-}
+     //reseting the games important variables
+     if (keyIsDown(ENTER)) {
+      x2 = 400
+      x1 = 100
+      y1 = 100
+      y2 = 300
+      hit = false
+      score = 0
+      p = false
+      df = 10
+      sp1 = 2
+      sp2 = 2
+      //end of reseting statment
+      }
     }
+//makeing sure the gameover sound is played only once
   else {
-  //playing the gameover sound
-  sound2.play()
-  sound2.pause(1)
-  p = true
+   //playing the gameover sound
+   sound2.play()
+   sound2.pause(1)
+   p = true
   }
 }
   else {
@@ -96,14 +105,15 @@ if (keyIsDown(ENTER)) {
   //clearing the background
     fill(255)
   background(0)
+  //loading the background image
   image(img,0,0,800,600)
+  //checking for a colision
   hit = collideRectCircle(x2,y2,size*2,size*2,x1,y1,size,size)
 
   //movement
   leftright()
   updown()
-  // player design
-
+  // player sprite design
   fill(100)
   ellipse(x1,y1,size,size)
   fill(188,188,188)
@@ -135,17 +145,22 @@ if (keyIsDown(ENTER)) {
     sp1 =-sp1
     //increasing score
     score = score+1
+    //playing score up noise
     sound.play()
+    //end of if statment
   }
   if (y2 <= 0 || y2+size*2 >= height) {
     sp2 =-sp2
     //increasing score
     score= score+1
+    //playing score up noise
     sound.play()
+    //end of if statment
   }
+  //moveing the enemy
   x2 = x2+sp1
   y2 = y2+sp2
-  //enemy design
+  //enemy sprite design
   noFill()
   rect(x2,y2,size*2,size*2)
   fill(188)
@@ -189,47 +204,59 @@ fill(0)
 //top border
 if (y1 <= 0) {
   y1 =y1+sp4
-
+  //end of if statment
 }
 //bottom border
 else if (y1+size >= height+50) {
   y1 =y1-sp4
-
+  //end of if statment
 }
 //left border
 if (x1 <= 0) {
   x1 =x1+sp3
-
+  //end of if statment
 }
 //right border
 else if (x1+size >= width+50) {
   x1 =x1-sp3
-
+  //end of if statment
 }
 //diffulcty curve
 if (score === df) {
+  //increasing the enemys speed
   sp1 = sp1*1.2
   sp2 = sp1*1.2
+  //reseting the difuculty curve statment
   df = df+10
   print(sp1)
+  //end of if statment
 }
+//end of else statment for gameover
 }
+//end of else if statment for instruction screen
 }
+// end of draw function
 }
 //movement functions
 function leftright() {
   if (keyIsDown(LEFT_ARROW)) {
     x1 = x1-sp3
+    //end of if statment
   }
   else if (keyIsDown(RIGHT_ARROW)) {
     x1 = x1+sp3
+    //end of else if statment
   }
+//end of leftright function
 }
 function updown() {
   if (keyIsDown(UP_ARROW)) {
     y1 = y1-sp4
+    //end of if statment
   }
   else if (keyIsDown(DOWN_ARROW)) {
     y1 = y1+sp4
+    //end of else if statment
   }
+//end of updown function
 }
