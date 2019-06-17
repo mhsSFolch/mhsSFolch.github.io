@@ -9,7 +9,7 @@ let shoty = 400
 let recharge = 0
 let pos = false
 let dis = 0
-let phealth = 10
+let phealth = 15
 let inv = 0
 
 var hit1 = false
@@ -183,10 +183,12 @@ else {
   if (dis === 100) {
     recharge = recharge-100
     dis = 0
+    pos = false
   }
   if (hit1) {
     recharge = recharge-100
     dis = 0
+    pos = false
   }
   // enemy ship hitbox
   rect(x2,y2,size/4*3,size)
@@ -418,6 +420,13 @@ if (attack === 'mine' && mf === false) {
   if (ehealth <= 20) {
     enenergy = enenergy + 1
   }
+  //preventing the player from leaveing the screen
+  if (y1+size >= 800) {
+    y1 = 800-size
+  }
+  if (y1 <= 0) {
+    y1 = 0
+  }
 }
 }
 }
@@ -441,7 +450,14 @@ function updown() {
     y1 = y1+5
   }
 }
-
+//reseting the player wepon if they let go of space
+function keyReleased() {
+  if (keyCode === 32 && recharge === 100) {
+  recharge = recharge-100
+  dis = 0
+  pos = false
+  }
+}
 //reseting the game function
 function reset() {
   if (keyIsDown(ENTER)) {
@@ -453,7 +469,7 @@ function reset() {
      recharge = 0
      pos = false
      dis = 0
-     phealth = 10
+     phealth = 15
      inv = 0
 
      hit1 = false
@@ -464,7 +480,7 @@ function reset() {
      hit2 = false
      hit3 = false
      hit4 = false
-     ly = 250
+     ly = 81
      attack = 'none'
      ldis = 0
      enenergy = 0
